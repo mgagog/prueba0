@@ -7,7 +7,7 @@ const characterSchema = new Schema(
     {
       nombre: { type: String, required: true },
       raza: { type: String, required: true },
-      descripcion: { type: String, required: true },
+      descripción: { type: String, required: true },
       habilidades: { type: String, required: true }
     },
     { timestamps: true }

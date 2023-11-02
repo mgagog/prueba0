@@ -25,7 +25,9 @@ const addCharacter = async (req: Request, res: Response) => {
     //FindOne por si hay dni
 
     const newChar = await CharacterModel.create({ nombre: nombre, raza: raza, descripción: descripción, habilidades: habilidades });
-    await newChar.save();
+
+    //const newChar = new CharacterModel ({ nombre: nombre, raza: raza, descripción: descripción, habilidades: habilidades });
+    //await newChar.save();
 
     res.status(200).send({
       id: newChar._id.toString(),

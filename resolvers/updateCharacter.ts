@@ -16,7 +16,7 @@ const updateCharacter = async (req: Request, res: Response) => {
     }
 
     const updatedChar = await CharacterModel.findOneAndUpdate(
-      { id },
+      { _id: id },
       { nombre: nombre, raza: raza, descripción: descripción, habilidades: habilidades },
       { new: true }
     ).exec();

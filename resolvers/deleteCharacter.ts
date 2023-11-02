@@ -4,7 +4,7 @@ import { CharacterModel } from "../db/character.ts";
 const deleteCharacter = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const char = await CharacterModel.findOneAndDelete({ id }).exec();
+    const char = await CharacterModel.findOneAndDelete({ _id: id }).exec();
     if (!char) {
       res.status(404).send("Personaje no encontrado");
       return;
