@@ -14,4 +14,4 @@ const characterSchema = new Schema(
   );
 export type CharacterModelType = mongoose.Document & Omit<Character, "id">;
 
-export default mongoose.model<CharacterModelType>("Character", characterSchema);
+export const CharacterModel = mongoose.model<CharacterModelType>("Character", characterSchema);

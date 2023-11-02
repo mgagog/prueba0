@@ -1,6 +1,6 @@
 import { Request, Response } from "npm:express@4.18.2";
 import { razaValida } from "../functions.ts";
-import CharacterModel from "../db/character.ts";
+import { CharacterModel } from "../db/character.ts";
 
 const updateCharacter = async (req: Request, res: Response) => {
   try {

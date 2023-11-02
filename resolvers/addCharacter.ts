@@ -1,6 +1,6 @@
 import { Request, Response } from "npm:express@4.18.2";
 import { razaValida } from "../functions.ts";
-import CharacterModel from "../db/character.ts"
+import { CharacterModel } from "../db/character.ts"
 
 const addCharacter = async (req: Request, res: Response) => {
   try {
@@ -14,7 +14,17 @@ const addCharacter = async (req: Request, res: Response) => {
       res.status(500).send("Esa raza no es váida. Elegir entre: Hobbit, Humano, Elfo, Enano o Ent");
     }
 
-    const newChar = new CharacterModel({ nombre: nombre, raza: raza, descripción: descripción, habilidades: habilidades });
+    //if(!Object.values(RAZAS).includes(raza)); Si se hace con enum
+
+    /*
+    if(
+      typeof nombre !== string || typeof raza !== "string" ...
+    )
+    */
+
+    //FindOne por si hay dni
+
+    const newChar = await CharacterModel.create({ nombre: nombre, raza: raza, descripción: descripción, habilidades: habilidades });
     await newChar.save();
 
     res.status(200).send({

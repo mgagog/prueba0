@@ -10,14 +10,19 @@ import deletePerson from "./resolvers/deleteCharacter.ts";
 import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts";
 const env = await load();
 
-const MONGO_URL = env.MONGO_URL || Deno.env.get("MONGO_URL");
+const MONGO_URL = env.MONGO_URL /*busca en el archivo*/ || Deno.env.get("MONGO_URL"); /*busca en variables de entorno*/
 
 if (!MONGO_URL) {
-  console.log("No hay url en el .env");
+  console.log("No hay MONGO_URL");
   Deno.exit(1);
 }
 
-await mongoose.connect(MONGO_URL);
+try{
+  await mongoose.connect(MONGO_URL);
+  console.info("Mongo connected");
+}catch(error){
+  console.error(error);
+}
 
 const app = express();
 app.use(express.json());

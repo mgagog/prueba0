@@ -1,5 +1,5 @@
 import { Request, Response } from "npm:express@4.18.2";
-import CharacterModel from "../db/character.ts";
+import { CharacterModel } from "../db/character.ts";
 
 const deleteCharacter = async (req: Request, res: Response) => {
   try {

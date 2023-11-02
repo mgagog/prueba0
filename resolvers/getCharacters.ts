@@ -1,5 +1,5 @@
 import type { Request, Response } from "npm:express@4.18.2";
-import CharacterModel from "../db/character.ts";
+import { CharacterModel } from "../db/character.ts";
 
 const getCharacters = async ( req: Request, res: Response ): Promise<void> => {
     try {
