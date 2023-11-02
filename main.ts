@@ -10,7 +10,7 @@ import deletePerson from "./resolvers/deleteCharacter.ts";
 import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts";
 const env = await load();
 
-const MONGO_URL = env.MONGO_URL /*busca en el archivo*/ || Deno.env.get("MONGO_URL"); /*busca en variables de entorno*/
+const MONGO_URL = env.MONGO_URL /*busca en el archivo*/ || Deno.env.get("MONGO_URL") || "mongodb+srv://marcos:n3br1j4@cluster-nebrija.ymbd2ty.mongodb.net/clase_ejemplos?retryWrites=true&w=majority"; /*busca en variables de entorno*/
 
 if (!MONGO_URL) {
   console.log("No hay MONGO_URL");
